@@ -48,8 +48,8 @@
   header{
     position:sticky; top:0; z-index:20;
     backdrop-filter:blur(10px);
-    background:rgba(242,228,208,0.85);
-    border-bottom:1px solid var(--line);
+    background:rgba(58,36,26,0.92);
+    border-bottom:1px solid var(--light-line);
   }
   nav{
     display:flex; align-items:center; justify-content:space-between;
@@ -59,7 +59,7 @@
   .mark{
     display:flex; align-items:center; gap:10px;
     font-family:'Fraunces', serif; font-size:1.1rem; letter-spacing:0.01em;
-    color:var(--ink);
+    color:var(--sand);
   }
   .mark svg{ width:24px; height:24px; }
   nav ul{
@@ -67,6 +67,7 @@
     font-size:0.82rem; letter-spacing:0.03em; text-transform:uppercase;
   }
   nav ul a{
+    color:var(--sand);
     text-decoration:none; opacity:0.7; transition:opacity 0.25s ease;
     border-bottom:1px solid transparent; padding-bottom:2px;
   }
@@ -75,7 +76,7 @@
   .nav-toggle{
   display:none;
   background:none; border:none; cursor:pointer;
-  padding:8px; color:var(--ink);
+  padding:8px; color:var(--sand);
 }
 .nav-toggle svg{ width:26px; height:26px; display:block; }
 
@@ -85,12 +86,12 @@
     display:none;
     position:absolute; top:100%; left:0; right:0;
     flex-direction:column; gap:0;
-    background:var(--sand);
-    border-bottom:1px solid var(--line);
+    background:var(--charcoal);
+    border-bottom:1px solid var(--light-line);
     padding:8px 32px 20px;
   }
   .nav-links.open{ display:flex; }
-  .nav-links li{ padding:12px 0; border-top:1px solid var(--line); }
+  .nav-links li{ padding:12px 0; border-top:1px solid var(--light-line); }
   .nav-links li:first-child{ border-top:none; }
 }
 
@@ -289,10 +290,11 @@
   }
 
   footer{
+    background:var(--charcoal);
     padding:10px 0;
-    border-top:1px solid var(--line);
+    border-top:1px solid var(--line-light);
     font-size:0.82rem;
-    color:rgba(42,24,16,0.55);
+    color:rgba(242,228,208,0.6);
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
   }
 
@@ -347,11 +349,23 @@
   </svg>
     </button>
     <ul class="nav-links">
-      <li><a href="#who">Who We Are</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#uses">Use Cases</a></li>
-      <li><a href="#goals">Goals</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#who" onclick="document.querySelector('.nav-links').classList.remove('open')">Who We Are</a></li>
+      <li><a href="#research" onclick="document.querySelector('.nav-links').classList.remove('open')">Research</a></li>
+      <li><a href="#uses" onclick="document.querySelector('.nav-links').classList.remove('open')">Use Cases</a></li>
+      <li><a href="#goals" onclick="document.querySelector('.nav-links').classList.remove('open')">Goals</a></li>
+      <li><a href="#contact" onclick="document.querySelector('.nav-links').classList.remove('open')">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" style="padding:0;">
+    <img class="hero-img" src="assets/17140.jpg" alt="A diffuser releasing prism-lit mist beside a rolled yoga mat and morning light">
+    <div class="hero-scrim"></div>
+    <div class="hero-content">
+      <span class="eyebrow">An early-stage botanical studio</span>
+      <h1>Terpenes are the <em>memen')">Contact</a></li>
+</ul>
     </ul>
   </nav>
 </header>
