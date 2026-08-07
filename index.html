@@ -277,6 +277,35 @@
   a:focus-visible, .cta:focus-visible{ outline:2px solid var(--clay); outline-offset:3px; }
 
   @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+
+  /* brand lockup in nav + footer */
+  .nav-logo{ height:40px; width:auto; display:block; }
+  .footer-logo{ height:34px; width:auto; display:block; opacity:0.9; }
+
+  /* ornamental section dividers */
+  .ornament{
+    display:flex; justify-content:center;
+    padding:8px 0;
+  }
+  .ornament img{
+    width:min(560px, 80vw); height:auto; opacity:0.85;
+  }
+  .beliefs .ornament img, .goals .ornament img{ opacity:0.6; }
+
+  /* small accent icons inside section heads */
+  .section-icon{
+    width:52px; height:auto; margin-bottom:18px; opacity:0.9;
+  }
+  .beliefs .section-icon, .goals .section-icon{ filter:brightness(1.4); }
+
+  /* tall icon accents beside content */
+  .tall-accent{
+    width:64px; height:auto; opacity:0.85;
+  }
+  .split-text .tall-accent{ margin-bottom:20px; }
+
+  .goal-row .tall-accent{ width:34px; min-width:34px; }
+  .goal-row .mark-glyph{ display:none; }
 </style>
 </head>
 <body>
@@ -284,11 +313,7 @@
 <header>
   <nav>
     <div class="mark">
-      <svg viewBox="0 0 26 26" fill="none">
-        <path d="M13 2C13 2 6 8 6 14.5C6 18.6 9.1 22 13 22C16.9 22 20 18.6 20 14.5C20 8 13 2 13 2Z" stroke="#B5502E" stroke-width="1.4"/>
-        <path d="M13 6V19" stroke="#7A5AA8" stroke-width="1" opacity="0.7"/>
-      </svg>
-      Spiralborn Collective
+      <img class="nav-logo" src="assets/brand/logo_withtext.png" alt="Spiralborn Collective">
     </div>
     <ul class="nav-links">
       <li><a href="#who">Who We Are</a></li>
@@ -311,6 +336,8 @@
     </div>
   </section>
 
+  <div class="ornament"><img src="assets/brand/border1.png" alt=""></div>
+
   <section id="who">
     <div class="wrap">
       <div class="split">
@@ -318,6 +345,7 @@
           <img src="assets/17141.jpg" alt="Overhead view of a formulation bench with mortar and pestle, dried herbs, and amber tincture bottles in warm light">
         </div>
         <div class="split-text">
+          <img class="tall-accent" src="assets/brand/icon_tall2.png" alt="">
           <div class="kicker">Who we are</div>
           <h2>Formulators before we were a brand.</h2>
           <p>Spiralborn Collective started the way most honest things start — with curiosity that outpaced any plan to sell something. Before there was a name, there was a workbench: dried botanicals, a mortar and pestle, and the slow, repetitive work of learning what a plant actually smells like once you take it apart.</p>
@@ -328,9 +356,12 @@
     </div>
   </section>
 
+  <div class="ornament"><img src="assets/brand/border2.png" alt=""></div>
+
   <section class="beliefs">
     <div class="wrap">
       <div class="section-head">
+        <img class="section-icon" src="assets/brand/icon4.png" alt="">
         <div class="kicker">What we believe</div>
         <h2>A few working principles.</h2>
         <p>Nothing here is dogma — these are the assumptions we keep testing against, and keep finding hold up.</p>
@@ -352,11 +383,12 @@
     </div>
   </section>
 
-  <img class="divider-img" src="assets/17143.jpg" alt="Macro texture of iridescent leaf veins in amber and violet light">
+  <img class="divider-img" src="assets/17144.jpg" alt="A lit candle in a hand-thrown clay vessel with smoke rising against magenta light">
 
   <section id="research">
     <div class="wrap">
       <div class="section-head">
+        <img class="section-icon" src="assets/brand/icon1.png" alt="">
         <div class="kicker">Terpenes vs. essential oils</div>
         <h2>Related, but not the same thing.</h2>
         <p>The two get used interchangeably a lot, which muddies what each one actually is. Here's the distinction as we understand it from our own reading and testing.</p>
@@ -383,6 +415,8 @@
       </div>
     </div>
   </section>
+
+  <div class="ornament"><img src="assets/brand/border3.png" alt=""></div>
 
   <section class="process">
     <div class="wrap">
@@ -412,6 +446,8 @@
     </div>
   </section>
 
+  <div class="ornament"><img src="assets/brand/border4.png" alt=""></div>
+
   <section id="uses">
     <div class="wrap">
       <div class="section-head">
@@ -428,7 +464,7 @@
           </div>
         </div>
         <div class="use-card">
-          <img src="assets/17144.jpg" alt="A lit candle in a hand-thrown clay vessel with smoke rising against magenta light">
+          <img src="assets/17143.jpg" alt="Macro texture of iridescent leaf veins in amber and violet light">
           <div class="use-body">
             <h4>Terpene-infused candles</h4>
             <p>The same terpene logic carried into a slower, warmer medium — scent as a room's mood, not a moment's.</p>
@@ -448,45 +484,48 @@
   <section id="goals" class="goals">
     <div class="wrap">
       <div class="section-head">
+        <img class="section-icon" src="assets/brand/icon_tall1.png" alt="">
         <div class="kicker">Where this is going</div>
         <h2>Goals, stated plainly.</h2>
       </div>
       <div class="goal-list">
         <div class="goal-row">
-          <span class="mark-glyph">i</span>
+          <img class="tall-accent" src="assets/brand/icon_tall1.png" alt="">
           <p>Move from small-batch testing to a formulation library we're confident enough in to share more widely.</p>
         </div>
         <div class="goal-row">
-          <span class="mark-glyph">ii</span>
+          <img class="tall-accent" src="assets/brand/icon2.png" alt="">
           <p>Build direct relationships with terpene suppliers who care about sourcing transparency, not just volume pricing.</p>
         </div>
         <div class="goal-row">
-          <span class="mark-glyph">iii</span>
+          <img class="tall-accent" src="assets/brand/icon3.png" alt="">
           <p>Document what we learn about individual terpenes as we go, so the research trail stays honest and checkable.</p>
         </div>
         <div class="goal-row">
-          <span class="mark-glyph">iv</span>
+          <img class="tall-accent" src="assets/brand/icon_tall3.png" alt="">
           <p>Bring the collective around Spiralborn into the feedback loop early, before anything is called finished.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <div class="ornament"><img src="assets/brand/border5.png" alt=""></div>
+
   <section id="contact" class="close">
     <div class="wrap">
       <div class="kicker" style="text-align:center;">Get in touch</div>
       <h2>We're building this in the open.</h2>
       <p>If you're a supplier, a fellow formulator, or just curious what we're making — reach out.</p>
-      <a class="cta" href="mailto:hello@spiralborncollective.shop">Say hello</a>
-      <p> </p>
+      <a class="cta" href="mailto:hello@spiralbornecollective.shop">Say hello</a>
+      <p></p>
       <p class="disclaimer">Spiralborn Collective is an early-stage formulation studio. Terpene effect associations referenced on this site reflect traditional and aromatic use, not medical or therapeutic claims. Nothing on this site is intended to diagnose, treat, or cure any condition.</p>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:12px;">
-    <span>Spiralborn Collective — Blackshear, GA</span>
+  <div class="wrap" style="display:flex; justify-content:space-between; align-items:center; width:100%; flex-wrap:wrap; gap:12px;">
+    <img class="footer-logo" src="assets/brand/logo_withtext.png" alt="Spiralborn Collective">
     <span>Est. 2026 · Early-stage botanical studio</span>
   </div>
 </footer>
