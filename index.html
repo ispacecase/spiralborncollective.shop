@@ -56,6 +56,27 @@
     padding:9px 16px;
     max-width:1100px; margin:0 auto;
   }
+  .nav-toggle{
+  display:none;
+  background:none; border:none; cursor:pointer;
+  padding:8px; color:var(--ink);
+}
+.nav-toggle svg{ width:26px; height:26px; display:block; }
+
+@media (max-width:760px){
+  .nav-toggle{ display:block; }
+  .nav-links{
+    display:none;
+    position:absolute; top:100%; left:0; right:0;
+    flex-direction:column; gap:0;
+    background:var(--sand);
+    border-bottom:1px solid var(--line);
+    padding:8px 32px 20px;
+  }
+  .nav-links.open{ display:flex; }
+  .nav-links li{ padding:12px 0; border-top:1px solid var(--line); }
+  .nav-links li:first-child{ border-top:none; }
+}
   .mark{
     display:flex; align-items:center; gap:10px;
     font-family:'Fraunces', serif; font-size:1.1rem; letter-spacing:0.01em;
@@ -72,7 +93,6 @@
   }
   nav ul a:hover, nav ul a:focus-visible{ opacity:1; border-color:var(--clay); }
   .nav-links{ display:flex; }
-  @media (max-width:760px){ .nav-links{ display:none; } }
 
   /* hero with photo */
   .hero{
@@ -283,7 +303,15 @@
 
   /* brand lockup in nav + footer */
   .nav-logo{ height:50px; width:auto; display:block; }
+  
+  @media (max-width:760px){
+  .nav-logo{ height:42px; padding:6px 12px; }
+  }
   .footer-logo{ height:70px; width:auto; display:block; opacity:0.9; }
+
+  @media (max-width:760px){
+  .footer-logo{ height:59px; }
+  }
 
   /* ornamental section dividers */
   .ornament{
@@ -315,6 +343,13 @@
     <div class="mark">
       <img class="nav-logo" src="assets/brand/wordmark.png" alt="Spiralborn Collective">
     </div>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+    <line x1="3" y1="6" x2="21" y2="6"/>
+    <line x1="3" y1="12" x2="21" y2="12"/>
+    <line x1="3" y1="18" x2="21" y2="18"/>
+  </svg>
+    </button>
     <ul class="nav-links">
       <li><a href="#who">Who We Are</a></li>
       <li><a href="#research">Research</a></li>
