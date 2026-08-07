@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spiralborn Collective — Terpene-Forward Botanicals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --clay:#B5502E;
+    --terracotta:#D97A4A;
+    --sand:#F2E4D0;
+    --magenta:#B23B7A;
+    --violet:#7A5AA8;
+    --ink:#2A1810;
+    --charcoal:#3A241A;
+    --line: rgba(42,24,16,0.14);
+    --line-light: rgba(242,228,208,0.25);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--sand);
+    color:var(--ink);
+    font-family:'Manrope', sans-serif;
+    font-weight:400;
+    line-height:1.65;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  img{ display:block; max-width:100%; }
+  .wrap{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* nav */
+  header{
+    position:sticky; top:0; z-index:20;
+    backdrop-filter:blur(10px);
+    background:rgba(242,228,208,0.85);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px;
+    max-width:1100px; margin:0 auto;
+  }
+  .mark{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces', serif; font-size:1.1rem; letter-spacing:0.01em;
+    color:var(--ink);
+  }
+  .mark svg{ width:24px; height:24px; }
+  nav ul{
+    display:flex; gap:32px; list-style:none;
+    font-size:0.82rem; letter-spacing:0.03em; text-transform:uppercase;
+  }
+  nav ul a{
+    text-decoration:none; opacity:0.7; transition:opacity 0.25s ease;
+    border-bottom:1px solid transparent; padding-bottom:2px;
+  }
+  nav ul a:hover, nav ul a:focus-visible{ opacity:1; border-color:var(--clay); }
+  .nav-links{ display:flex; }
+  @media (max-width:760px){ .nav-links{ display:none; } }
+
+  /* hero with photo */
+  .hero{
+    position:relative;
+    min-height:88vh;
+    display:flex; align-items:flex-end;
+    overflow:hidden;
+  }
+  .hero-img{
+    position:absolute; inset:0; z-index:0;
+    width:100%; height:100%; object-fit:cover;
+    object-position:center 30%;
+  }
+  .hero-scrim{
+    position:absolute; inset:0; z-index:1;
+    background:linear-gradient(180deg, rgba(42,24,16,0.15) 0%, rgba(42,24,16,0.05) 35%, rgba(42,24,16,0.75) 100%);
+  }
+  .hero-content{
+    position:relative; z-index:2;
+    padding:60px 32px 72px;
+    max-width:1100px; margin:0 auto; width:100%;
+    color:var(--sand);
+  }
+  .eyebrow{
+    display:inline-block;
+    font-size:0.76rem; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--terracotta);
+    background:rgba(42,24,16,0.4);
+    padding:6px 14px;
+    border-radius:20px;
+    margin-bottom:24px;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 5.4vw, 4.4rem);
+    line-height:1.05;
+    max-width:760px;
+    margin-bottom:22px;
+  }
+  .hero h1 em{ font-style:italic; color:var(--terracotta); }
+  .hero p{
+    max-width:520px;
+    font-size:1.05rem;
+    color:rgba(242,228,208,0.9);
+  }
+
+  section{
+    position:relative;
+    padding:96px 0;
+  }
+  .kicker{
+    font-size:0.76rem; letter-spacing:0.16em; text-transform:uppercase;
+    color:var(--magenta);
+    margin-bottom:16px;
+    font-weight:600;
+  }
+  .section-head{
+    max-width:680px; margin-bottom:52px;
+  }
+  .section-head h2{
+    font-size:clamp(1.8rem, 3.2vw, 2.5rem);
+    margin-bottom:18px;
+  }
+  .section-head p{
+    color:rgba(42,24,16,0.72);
+    font-size:1.03rem;
+  }
+
+  /* who we are — split with image */
+  .split{
+    display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;
+  }
+  @media (max-width:820px){ .split{ grid-template-columns:1fr; gap:36px; } }
+  .split.reverse .split-img{ order:2; }
+  .split.reverse .split-text{ order:1; }
+  @media (max-width:820px){ .split.reverse .split-img, .split.reverse .split-text{ order:initial; } }
+  .split-img{ position:relative; }
+  .split-img img{
+    width:100%; border-radius:4px;
+    box-shadow:0 24px 60px -20px rgba(42,24,16,0.35);
+  }
+  .split-text h2{ font-size:clamp(1.7rem, 3vw, 2.3rem); margin-bottom:20px; }
+  .split-text p{ color:rgba(42,24,16,0.75); margin-bottom:16px; }
+  .split-text p:last-child{ margin-bottom:0; }
+  .split-text strong{ color:var(--clay); font-weight:600; }
+
+  /* beliefs strip */
+  .beliefs{ background:var(--charcoal); color:var(--sand); }
+  .beliefs .kicker{ color:var(--terracotta); }
+  .beliefs .section-head p{ color:rgba(242,228,208,0.75); }
+  .belief-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1px;
+    background:var(--line-light);
+    border:1px solid var(--line-light);
+  }
+  @media (max-width:820px){ .belief-grid{ grid-template-columns:1fr; } }
+  .belief-card{
+    background:var(--charcoal);
+    padding:38px 32px;
+  }
+  .belief-card h3{ font-size:1.2rem; margin-bottom:12px; color:var(--sand); }
+  .belief-card p{ font-size:0.94rem; color:rgba(242,228,208,0.68); }
+
+  /* full bleed texture divider */
+  .divider-img{
+    width:100%; height:38vh; object-fit:cover;
+    position:relative;
+  }
+  .divider-img::after{ content:''; }
+
+  /* terpenes vs oils */
+  .compare{
+    display:grid; grid-template-columns:1fr 1fr; gap:0;
+    border:1px solid var(--line); border-radius:4px; overflow:hidden;
+  }
+  @media (max-width:720px){ .compare{ grid-template-columns:1fr; } }
+  .compare-col{ padding:40px 36px; }
+  .compare-col.a{ background:rgba(181,80,46,0.06); border-right:1px solid var(--line); }
+  @media (max-width:720px){ .compare-col.a{ border-right:none; border-bottom:1px solid var(--line); } }
+  .compare-col.b{ background:rgba(122,90,168,0.06); }
+  .compare-col h4{ font-size:1.15rem; margin-bottom:16px; font-family:'Fraunces', serif; }
+  .compare-col.a h4{ color:var(--clay); }
+  .compare-col.b h4{ color:var(--violet); }
+  .compare-col ul{ list-style:none; }
+  .compare-col li{
+    font-size:0.95rem; color:rgba(42,24,16,0.75);
+    padding:10px 0; border-top:1px solid var(--line);
+  }
+  .compare-col li:first-of-type{ border-top:none; }
+
+  /* research / process timeline */
+  .process{ background:var(--sand); }
+  .process-list{ max-width:800px; }
+  .p-item{
+    display:grid; grid-template-columns:130px 1fr;
+    gap:28px; padding:28px 0;
+    border-top:1px solid var(--line);
+  }
+  @media (max-width:600px){ .p-item{ grid-template-columns:1fr; gap:6px; } }
+  .p-item:last-child{ border-bottom:1px solid var(--line); }
+  .p-item .stage{
+    font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--magenta); font-weight:600; padding-top:2px;
+  }
+  .p-item h4{ font-size:1.1rem; margin-bottom:6px; font-family:'Fraunces', serif; font-weight:500; }
+  .p-item p{ font-size:0.94rem; color:rgba(42,24,16,0.7); }
+
+  /* use cases grid with images */
+  .uses-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;
+  }
+  @media (max-width:820px){ .uses-grid{ grid-template-columns:1fr; } }
+  .use-card{
+    border-radius:4px; overflow:hidden;
+    background:#fff;
+    box-shadow:0 12px 32px -16px rgba(42,24,16,0.25);
+  }
+  .use-card img{ width:100%; aspect-ratio:1/1; object-fit:cover; }
+  .use-card .use-body{ padding:24px 22px; }
+  .use-card h4{ font-family:'Fraunces', serif; font-weight:500; font-size:1.1rem; margin-bottom:8px; }
+  .use-card p{ font-size:0.92rem; color:rgba(42,24,16,0.68); }
+
+  /* goals */
+  .goals{ background:var(--charcoal); color:var(--sand); }
+  .goals .kicker{ color:var(--terracotta); }
+  .goal-list{ max-width:720px; }
+  .goal-row{
+    display:flex; gap:20px; padding:22px 0;
+    border-top:1px solid var(--line-light);
+    align-items:baseline;
+  }
+  .goal-row:last-child{ border-bottom:1px solid var(--line-light); }
+  .goal-row .mark-glyph{ color:var(--terracotta); font-family:'Fraunces', serif; font-style:italic; min-width:24px; }
+  .goal-row p{ color:rgba(242,228,208,0.8); font-size:0.98rem; }
+
+  /* closing */
+  .close{ text-align:center; }
+  .close h2{ font-size:clamp(2rem, 4vw, 2.8rem); max-width:620px; margin:0 auto 22px; }
+  .close p{ max-width:480px; margin:0 auto 36px; color:rgba(42,24,16,0.72); }
+  .cta{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:16px 34px;
+    background:var(--clay); color:var(--sand);
+    text-decoration:none;
+    font-size:0.9rem; letter-spacing:0.04em; text-transform:uppercase;
+    border-radius:3px; border:1px solid var(--clay);
+    transition:all 0.3s ease;
+  }
+  .cta:hover, .cta:focus-visible{ background:transparent; color:var(--clay); }
+
+  .disclaimer{
+    max-width:680px; margin:36px auto 0;
+    font-size:0.82rem; color:rgba(42,24,16,0.5);
+    line-height:1.6;
+  }
+
+  footer{
+    padding:36px 0;
+    border-top:1px solid var(--line);
+    font-size:0.82rem;
+    color:rgba(42,24,16,0.55);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+  }
+
+  ::selection{ background:var(--terracotta); color:var(--sand); }
+  a:focus-visible, .cta:focus-visible{ outline:2px solid var(--clay); outline-offset:3px; }
+
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="mark">
+      <svg viewBox="0 0 26 26" fill="none">
+        <path d="M13 2C13 2 6 8 6 14.5C6 18.6 9.1 22 13 22C16.9 22 20 18.6 20 14.5C20 8 13 2 13 2Z" stroke="#B5502E" stroke-width="1.4"/>
+        <path d="M13 6V19" stroke="#7A5AA8" stroke-width="1" opacity="0.7"/>
+      </svg>
+      Spiralborn Collective
+    </div>
+    <ul class="nav-links">
+      <li><a href="#who">Who We Are</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#uses">Use Cases</a></li>
+      <li><a href="#goals">Goals</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" style="padding:0;">
+    <img class="hero-img" src="assets/17140.jpg" alt="A diffuser releasing prism-lit mist beside a rolled yoga mat and morning light">
+    <div class="hero-scrim"></div>
+    <div class="hero-content">
+      <span class="eyebrow">An early-stage botanical studio</span>
+      <h1>Terpenes are the <em>memory</em> a plant leaves behind.</h1>
+      <p>Spiralborn Collective is a small, independent collective experimenting with terpene-forward botanicals — building toward herbal vape blends, aromatherapy formulations, and terpene-infused candles.</p>
+    </div>
+  </section>
+
+  <section id="who">
+    <div class="wrap">
+      <div class="split">
+        <div class="split-img">
+          <img src="assets/17141.jpg" alt="Overhead view of a formulation bench with mortar and pestle, dried herbs, and amber tincture bottles in warm light">
+        </div>
+        <div class="split-text">
+          <div class="kicker">Who we are</div>
+          <h2>Formulators before we were a brand.</h2>
+          <p>Spiralborn Collective started the way most honest things start — with curiosity that outpaced any plan to sell something. Before there was a name, there was a workbench: dried botanicals, a mortar and pestle, and the slow, repetitive work of learning what a plant actually smells like once you take it apart.</p>
+          <p>We're not a manufacturer with a supply chain to justify. We're closer to <strong>a small group of people who kept noticing the same thing</strong> — that scent carries more than fragrance, and that the terpene layer of a plant is where a lot of its character actually lives.</p>
+          <p>This site is an honest account of where that's taken us so far.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="beliefs">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">What we believe</div>
+        <h2>A few working principles.</h2>
+        <p>Nothing here is dogma — these are the assumptions we keep testing against, and keep finding hold up.</p>
+      </div>
+      <div class="belief-grid">
+        <div class="belief-card">
+          <h3>Scent is information</h3>
+          <p>A terpene profile isn't decoration on top of a plant — it's a signature the plant produces for its own reasons. We treat that signature as worth listening to, not just smelling.</p>
+        </div>
+        <div class="belief-card">
+          <h3>Small batches tell the truth</h3>
+          <p>Formulating in volume hides mistakes. We work small on purpose, so every ratio, every blend, has to actually earn its place.</p>
+        </div>
+        <div class="belief-card">
+          <h3>Ritual is part of the product</h3>
+          <p>How something is used — a quiet evening, a shared room, a breath practice — shapes what a scent is for as much as its chemistry does.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <img class="divider-img" src="assets/17143.jpg" alt="Macro texture of iridescent leaf veins in amber and violet light">
+
+  <section id="research">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Terpenes vs. essential oils</div>
+        <h2>Related, but not the same thing.</h2>
+        <p>The two get used interchangeably a lot, which muddies what each one actually is. Here's the distinction as we understand it from our own reading and testing.</p>
+      </div>
+      <div class="compare">
+        <div class="compare-col a">
+          <h4>Terpenes</h4>
+          <ul>
+            <li>The specific aromatic compounds responsible for a plant's scent — pinene, limonene, myrcene, linalool, and others</li>
+            <li>Can be isolated individually or blended to reconstruct a precise profile</li>
+            <li>Traditionally associated with different moods depending on the compound — citrus terpenes with brightness, myrcene with a heavier, more sedating character</li>
+            <li>Found across plants broadly, not limited to any single species</li>
+          </ul>
+        </div>
+        <div class="compare-col b">
+          <h4>Essential oils</h4>
+          <ul>
+            <li>A whole-plant extraction — the full aromatic and chemical complex of a leaf, flower, or peel, not a single isolated compound</li>
+            <li>Includes terpenes as one part of a much larger mixture</li>
+            <li>Extraction method (steam distillation, cold pressing) shapes the final character as much as the source plant does</li>
+            <li>Used whole, generally not broken back down into components</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">How we got here</div>
+        <h2>What our research actually looked like.</h2>
+        <p>Less a literature review, more a slow accumulation of small experiments — cross-checked against what's documented about each compound.</p>
+      </div>
+      <div class="process-list">
+        <div class="p-item">
+          <span class="stage">Read</span>
+          <div><h4>Starting with what's documented</h4><p>Working through what's publicly known about individual terpenes — their traditional aromatic associations, how they're used in perfumery and herbal practice, and where the evidence is thin versus well-established.</p></div>
+        </div>
+        <div class="p-item">
+          <span class="stage">Source</span>
+          <div><h4>Sourcing isolates to test against</h4><p>Building a small library of terpene isolates and blends from direct suppliers, so claims from reading could be checked against an actual nose.</p></div>
+        </div>
+        <div class="p-item">
+          <span class="stage">Test</span>
+          <div><h4>Small-batch formulation</h4><p>Testing ratios and carrier bases in small batches, tracking what a blend was supposed to evoke against what it actually did once diffused, vaped, or burned.</p></div>
+        </div>
+        <div class="p-item">
+          <span class="stage">Refine</span>
+          <div><h4>Iterating on scent and feel</h4><p>Adjusting for balance and longevity — how a blend reads on first contact versus twenty minutes into a room, which is where most formulations reveal themselves.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="uses">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">What herbal vapes are</div>
+        <h2>And where terpene work could live.</h2>
+        <p>A herbal vape, in the sense we mean it, is a device that heats a botanical or terpene-infused blend enough to release its aromatic compounds without combustion — closer to a diffuser you inhale from directly than to smoking. The terpene layer is what determines whether that experience reads as bright, heavy, floral, or sharp.</p>
+      </div>
+      <div class="uses-grid">
+        <div class="use-card">
+          <img src="assets/17142.jpg" alt="Amber terpene dropper bottle backlit against a prism-colored gradient">
+          <div class="use-body">
+            <h4>Herbal vape blends</h4>
+            <p>Terpene-forward formulations built around flavor architecture and aromatic complexity, not any single note.</p>
+          </div>
+        </div>
+        <div class="use-card">
+          <img src="assets/17144.jpg" alt="A lit candle in a hand-thrown clay vessel with smoke rising against magenta light">
+          <div class="use-body">
+            <h4>Terpene-infused candles</h4>
+            <p>The same terpene logic carried into a slower, warmer medium — scent as a room's mood, not a moment's.</p>
+          </div>
+        </div>
+        <div class="use-card">
+          <img src="assets/17145.jpg" alt="Macro shot of dried lavender, sage, and amber resin against a prism-lit desert gradient">
+          <div class="use-body">
+            <h4>Terpene aromatherapy</h4>
+            <p>Isolate and blended profiles explored for diffusion, ritual, and grounding — the oldest use case, and still the clearest one.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="goals" class="goals">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Where this is going</div>
+        <h2>Goals, stated plainly.</h2>
+      </div>
+      <div class="goal-list">
+        <div class="goal-row">
+          <span class="mark-glyph">i</span>
+          <p>Move from small-batch testing to a formulation library we're confident enough in to share more widely.</p>
+        </div>
+        <div class="goal-row">
+          <span class="mark-glyph">ii</span>
+          <p>Build direct relationships with terpene suppliers who care about sourcing transparency, not just volume pricing.</p>
+        </div>
+        <div class="goal-row">
+          <span class="mark-glyph">iii</span>
+          <p>Document what we learn about individual terpenes as we go, so the research trail stays honest and checkable.</p>
+        </div>
+        <div class="goal-row">
+          <span class="mark-glyph">iv</span>
+          <p>Bring the collective around Spiralborn into the feedback loop early, before anything is called finished.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="close">
+    <div class="wrap">
+      <div class="kicker" style="text-align:center;">Get in touch</div>
+      <h2>We're building this in the open.</h2>
+      <p>If you're a supplier, a fellow formulator, or just curious what we're making — reach out.</p>
+      <a class="cta" href="mailto:hello@spiralborncollective.com">Say hello</a>
+      <p class="disclaimer">Spiralborn Collective is an early-stage formulation studio. Terpene effect associations referenced on this site reflect traditional and aromatic use, not medical or therapeutic claims. Nothing on this site is intended to diagnose, treat, or cure any condition.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:12px;">
+    <span>Spiralborn Collective — Blackshear, GA</span>
+    <span>Est. 2026 · Early-stage botanical studio</span>
+  </div>
+</footer>
+
+</body>
+</html>
